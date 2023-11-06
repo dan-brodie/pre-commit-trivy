@@ -1,17 +1,17 @@
-- id: trivyinit
-  name: trivyinit
-  entry: aquasec/trivy:0.46.1 image --cache-dir /tmp/trivy/ --download-db-only --exit-code 1
-  language: docker_image
-  pass_filenames: false
-
 - id: trivyfs
   name: trivyfs
   entry: aquasec/trivy:0.46.1 fs --cache-dir /tmp/trivy/ --exit-code 1
   language: docker_image
   pass_filenames: false
 
-- id: trivyk8
-  name: trivyk8
-  entry: aquasec/trivy:0.46.1 k8 --cache-dir /tmp/trivy/ --exit-code 1
+- id: trivyconfig
+  name: trivyconfig
+  entry: aquasec/trivy:0.46.1 config --cache-dir /tmp/trivy/ --exit-code 1
+  language: docker_image
+  pass_filenames: false
+
+- id: trivyk8s
+  name: trivyk8s
+  entry: aquasec/trivy:0.46.1 k8s --cache-dir /tmp/trivy/ --exit-code 1
   language: docker_image
   pass_filenames: false
